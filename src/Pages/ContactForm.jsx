@@ -19,15 +19,15 @@ const ContactForm = ({addContact, updateContact, selectedContact}) => {
         const formData = new FormData();
         formData.append('file' , file);
         formData.append('upload_preset', 'your_upload_preset');
-      try {
-        const response = await  axios.post(
-          `https://api.cloudinary.com/v1_1/your_cloud_name/image/upload`,
-          formData
-        );
-      } catch (error) {
-        console.log('Error uploading image:', error);
+      // try {
+      //   const response = await  axios.post(
+      //     `https://api.cloudinary.com/v1_1/your_cloud_name/image/upload`,
+      //     formData
+      //   );
+      // } catch (error) {
+      //   console.log('Error uploading image:', error);
         
-      }
+      // }
     };
 
     const handleSubmit =(e)=>{
