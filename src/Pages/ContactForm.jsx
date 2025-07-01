@@ -19,15 +19,15 @@ const ContactForm = ({addContact, updateContact, selectedContact}) => {
         const formData = new FormData();
         formData.append('file' , file);
         formData.append('upload_preset', 'your_upload_preset');
-      // try {
-      //   const response = await  axios.post(
-      //     `https://api.cloudinary.com/v1_1/your_cloud_name/image/upload`,
-      //     formData
-      //   );
-      // } catch (error) {
-      //   console.log('Error uploading image:', error);
+      try {
+        const response = await  axios.post(
+          `https://api.cloudinary.com/v1_1/your_cloud_name/image/upload`,
+          formData
+        );
+      } catch (error) {
+        console.log('Error uploading image:', error);
         
-      // }
+      }
     };
 
     const handleSubmit =(e)=>{
@@ -46,7 +46,8 @@ const ContactForm = ({addContact, updateContact, selectedContact}) => {
   return (
     <>
     <form onSubmit={handleSubmit} className='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4' ><br />
-        <input className='mb-4 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 lending-tight focus:outline-none focus:shadow-outline' type="text" name='name' placeholder='Name' value={contact.name} onChange={handleChange} required /> <br /> 
+        <input className='mb-4 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 lending-tight focus:outline-none focus:shadow-outline'
+         type="text" name='name' placeholder='Name' value={contact.name} onChange={handleChange} required /> <br /> 
         <input className='mb-4 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 lending-tight focus:outline-none focus:shadow-outline' type="number" name='phone' placeholder='Phone No.' value={contact.phone} onChange={handleChange} required /> <br />
         <input className='mb-4 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 lending-tight focus:outline-none focus:shadow-outline' type="email" name='email' placeholder='Email' value={contact.email} onChange={handleChange} required /> <br />
         <input className='mb-4 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 lending-tight focus:outline-none focus:shadow-outline' type="File" onChange={handleImageUpload}    /> <br />
